@@ -13,6 +13,7 @@ int registrar() //Função responsável por cadastrar usuários
 	char nome[40];
 	char sobrenome[40];
 	char cargo [40];
+	int opcao = 0;
 	
 	printf("Digite o CPF a ser cadastrado: \n"); //Coletando informação do usuário
 	scanf("%s", cpf); //%s refere-se a String
@@ -61,9 +62,19 @@ int registrar() //Função responsável por cadastrar usuários
 //	fprintf(file, ", ");
 //	fclose(file);
 		
-	system("pause");
+	printf("Deseja cadastrar mais usuários?\n");
+	printf("1 para SIM\n2 para NÃO:");
+	printf("\nOpção: ");
+	scanf("%d",&opcao);
+	if (opcao == 1) {
+        registrar(); // reinicia o cadastro de usuário
+    } else if (opcao == 2) {
+        main(); // retorna ao menu principal
+    } else {
+        printf("Opção inválida\n");     // informa que a opção é inválida
+    }
 }
-
+		
 int consultar(){
     setlocale(LC_ALL, "Portuguese"); //Definindo linguagem
 	
@@ -109,7 +120,6 @@ int deletar(){
 		printf("O usuário deletado com sucesso \n");
 		system("pause");
 	}
-    
 	
 }
 
